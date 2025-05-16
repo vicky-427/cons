@@ -1,18 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landing from './pages/Landing';
-import ConstructionCalculator from './pages/ConstructionCalculator';
-import RecentProjects from './pages/RecentProjects';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Main from './components/Landing';
+import ConstructionCostCalculator from './components/main';
+import Recent from './pages/recent';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/main" element={<ConstructionCalculator />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/main" element={<ConstructionCostCalculator />} />
+        <Route path="/recent" element={<Recent />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
 }
 
-export default App;
+export default App; 
